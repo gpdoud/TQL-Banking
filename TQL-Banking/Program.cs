@@ -4,6 +4,12 @@ namespace TQL_Banking {
     class Program {
         static void Main(string[] args) {
 
+            var cd1 = new CertificateOfDeposit(Amount: 1000, Months: 12);
+            cd1.Deposit(1);
+            cd1.Withdraw(1);
+            cd1.WithdrawDate = DateTime.Now.AddDays(-1); // yesterday
+            var funds = cd1.Withdraw();
+
             var sav1 = new Savings();
             sav1.Deposit(1000);
             sav1.PayInterest(3);

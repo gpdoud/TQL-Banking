@@ -10,7 +10,7 @@ namespace TQL_Banking {
         public string RoutingNumber { get; set; }
         public string Description { get; set; }
 
-        public bool Deposit(decimal amount) {
+        public virtual bool Deposit(decimal amount) {
             if(amount <= 0) {
                 Console.WriteLine($"Amount must be GT zero");
                 return false;
@@ -18,7 +18,7 @@ namespace TQL_Banking {
             Balance = Balance + amount;
             return true;
         }
-        public bool Withdraw(decimal amount) {
+        public virtual bool Withdraw(decimal amount) {
             if(amount <= 0) {
                 Console.WriteLine($"Amount must be GT zero");
                 return false;
