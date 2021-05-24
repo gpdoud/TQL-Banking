@@ -3,9 +3,18 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace TQL_Banking {
-    class Savings2 {
+    class Savings2 : IBanking {
 
         private Account account = new Account();
+
+        public string AccountNumber { 
+            get {
+                return account.AccountNumber;
+            } 
+            set {
+
+            }
+        }
         public decimal InterestRate { get; private set; } = 0.12m;
 
         public decimal CalculateInterestByMonths(int NumberOfMonths) {
@@ -24,6 +33,14 @@ namespace TQL_Banking {
         }
         public bool Transfer(decimal amount, Account toAccount) {
             return account.Transfer(amount, toAccount);
+        }
+
+        public decimal GetBalance() {
+            return account.Balance;
+        }
+
+        public string GetAccountNumber() {
+            return account.AccountNumber;
         }
 
         public Savings2() {
