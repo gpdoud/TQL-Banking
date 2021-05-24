@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
+using TQL_Banking.Exceptions;
+
 namespace TQL_Banking {
     class Account {
 
@@ -12,20 +14,17 @@ namespace TQL_Banking {
 
         public virtual bool Deposit(decimal amount) {
             if(amount <= 0) {
-                Console.WriteLine($"Amount must be GT zero");
-                return false;
+                throw new InvalidParameterException(amount);
             }
             Balance = Balance + amount;
             return true;
         }
         public virtual bool Withdraw(decimal amount) {
             if(amount <= 0) {
-                Console.WriteLine($"Amount must be GT zero");
-                return false;
+                throw new InvalidParameterException(amount);
             }
             if(amount > Balance) {
-                Console.WriteLine($"Insufficient funds");
-                return false;
+                throw new InsufficientFundsException(amount, Balance);
             }
             Balance = Balance - amount;
             return true;

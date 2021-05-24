@@ -1,8 +1,22 @@
 ﻿using System;
 
+using TQL_Banking.Exceptions;
+
 namespace TQL_Banking {
     class Program {
         static void Main(string[] args) {
+
+            var acct100 = new Account();
+            acct100.Deposit(100);
+            try {
+                acct100.Withdraw(12000);
+            } catch(InsufficientFundsException ex) {
+
+            } catch(DivideByZeroException ex) {
+                throw;
+            } catch(Exception ex) {
+
+            }
 
             var sv1 = new Savings2();
             sv1.Deposit(2000);
