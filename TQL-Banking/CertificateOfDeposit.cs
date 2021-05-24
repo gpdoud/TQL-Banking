@@ -31,7 +31,7 @@ namespace TQL_Banking {
             base.Deposit(decimal.Round(interest, 2));
         }
 
-        public void SetDurationAndRate(int months) {
+        private void SetDurationAndRate(int months) {
             switch(months) {
                 case 12:
                     WithdrawDate = DepositDate.AddYears(1);
